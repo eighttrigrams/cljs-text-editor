@@ -1,5 +1,5 @@
 (ns net.eighttrigrams.cljs-text-editor.lowlevel
-  (:require [editor.helpers :as h]))
+  (:require [net.eighttrigrams.cljs-text-editor.helpers :as h]))
 
 (def word-stop-pattern "[,;.\\-_\\n\\t]")
 

@@ -1,8 +1,12 @@
-{:paths   ["src/lib"]
- :aliases {:jar    {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.1.303"}}
+{:paths   ["src/lib" "test"]
+ :aliases {:test   {:main-opts  ["-m" "cognitect.test-runner"]
+                    :extra-deps {com.cognitect/test-runner {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                                                            :sha     "cc75980b43011773162b485f46f939dc5fba91e4"}}
+                    :exec-fn    cognitect.test-runner.api/test}
+           :jar    {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.1.303"}}
                     :exec-fn      hf.depstar/jar
                     :exec-args    {}}
            :deploy {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
                     :exec-fn    deps-deploy.deps-deploy/deploy
-                    :exec-args  {:installer      :remote
-                                 :artifact       "CljsTextEditor.jar"}}}}
+                    :exec-args  {:installer :remote
+                                 :artifact  "CljsTextEditor.jar"}}}}
