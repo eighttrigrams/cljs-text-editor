@@ -4,7 +4,7 @@
   <packaging>jar</packaging>
   <groupId>net.eighttrigrams</groupId>
   <artifactId>cljs-text-editor</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <name>cljs-text-editor</name>
   <dependencies>
   </dependencies>
@@ -21,6 +21,6 @@
     <url>https://github.com/eighttrigrams/cljs-text-editor</url>
     <connection>scm:git:git://github.com/eighttrigrams/cljs-text-editor.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/eighttrigrams/cljs-text-editor.git</developerConnection>
-    <tag>4875be11d4037a4791be182f4fc7661ddd090d43</tag>
+    <tag>7de5d8812b6cc412db7df9aa4a5c28f407af7b27</tag>
   </scm>
 </project>
