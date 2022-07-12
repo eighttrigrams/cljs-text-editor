@@ -1,4 +1,4 @@
-(ns et.eighttrigrams.cljs-text-editor.editor
+(ns net.eighttrigrams.cljs-text-editor.editor
   (:require [net.eighttrigrams.cljs-text-editor.helpers :as helpers]))
 
 (defn set-values! [el {selection-start :selection-start
