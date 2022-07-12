@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>jar</packaging>
+  <groupId>net.eighttrigrams</groupId>
+  <artifactId>cljs-text-editor</artifactId>
+  <version>0.0.1</version>
+  <name>cljs-text-editor</name>
+  <dependencies>
+  </dependencies>
+  <build>
+    <sourceDirectory>src/lib</sourceDirectory>
+  </build>
+  <repositories>
+    <repository>
+      <id>clojars</id>
+      <url>https://repo.clojars.org/</url>
+    </repository>
+  </repositories>
+   <scm>
+    <url>https://github.com/eighttrigrams/cljs-text-editor</url>
+    <connection>scm:git:git://github.com/eighttrigrams/cljs-text-editor.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/eighttrigrams/cljs-text-editor.git</developerConnection>
+    <tag>616f4d4b6a77d26483d168597f65366c33929612</tag>
+  </scm>
+</project>
