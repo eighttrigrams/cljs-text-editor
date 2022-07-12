@@ -1,4 +1,4 @@
-(ns et.eighttrigrams.cljs-text-editor.time-machine)
+(ns net.eighttrigrams.cljs-text-editor.time-machine)
 
 (def commands-to-track #{:delete-with-selection-present 
                          :delete-wordwise-forward
