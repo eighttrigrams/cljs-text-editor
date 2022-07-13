@@ -57,7 +57,7 @@
       (reset! position-in-line:atom (:position-in-line new-state))
       (when (not= (:dont-prevent-default new-state) true) (.preventDefault e)))))
 
-(defn- click [el position-in-line:atom]
+(defn click [el position-in-line:atom]
   (fn [_e]
     (let [[position-in-line] (helpers/cursor-position-in-line
                               (.-value el)

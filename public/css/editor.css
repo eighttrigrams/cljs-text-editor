@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+}
+
+textarea {
+    font-family: monospace;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    padding: 20px;
+    font-size: 48px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 43px);
+}
