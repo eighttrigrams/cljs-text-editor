@@ -1,5 +1,9 @@
 (ns net.eighttrigrams.cljs-text-editor.editor
-  (:require [net.eighttrigrams.cljs-text-editor.helpers :as helpers]))
+  (:require [net.eighttrigrams.cljs-text-editor.helpers :as helpers]
+            [net.eighttrigrams.cljs-text-editor.machine :as machine]
+            [net.eighttrigrams.cljs-text-editor.bindings :as bindings]
+            [net.eighttrigrams.cljs-text-editor.bindings-resolver :as bindings-resolver]
+            [net.eighttrigrams.cljs-text-editor.time-machine :as time-machine]))
 
 (defn set-values! [el {selection-start :selection-start
                        selection-end :selection-end
@@ -71,3 +75,14 @@
 (defn mouseleave [_el modifiers]
   (fn [_e]
     (reset! modifiers #{})))
+
+(defn create [el]
+  (let [modifiers (atom #{})
+        position-in-line (atom nil)
+        resolve-bindings (bindings-resolver/build bindings/commands)
+        transform-state (-> (machine/build) time-machine/build resolve-bindings)]
+    (.addEventListener el "paste" (paste el modifiers transform-state position-in-line))
+    (.addEventListener el "keydown" (keydown el modifiers transform-state position-in-line))
+    (.addEventListener el "keyup" (keyup el modifiers))
+    (.addEventListener el "mouseleave" (mouseleave el modifiers))
+    (.addEventListener el "click" (click el position-in-line))))
