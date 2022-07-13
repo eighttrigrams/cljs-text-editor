@@ -2,7 +2,7 @@
 
 ## Usage
 
-To fetch the dependency via Leiningen use [net.eighttrigrams/cljs-text-editor "0.0.8"].
+To fetch the dependency via Leiningen use `[net.eighttrigrams/cljs-text-editor "0.0.8"]`.
 
 ## Development
 
