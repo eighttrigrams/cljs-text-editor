@@ -1,13 +1,17 @@
 (ns net.eighttrigrams.cljs-text-editor.lowlevel-test
-  (:require [clojure.test :refer (deftest is)]
+  (:require [clojure.test :refer (deftest testing is)]
             [net.eighttrigrams.cljs-text-editor.test-helpers :as th]
             [net.eighttrigrams.cljs-text-editor.lowlevel :as lowlevel]
             [net.eighttrigrams.cljs-text-editor.helpers :as h] ))
 
-(deftest insert-tab 
-  (is (th/matches-model
-       (lowlevel/insert-tab (th/convert "|abc"))
-       (th/convert "\t|abc"))))
+(deftest tabs
+ (testing "insert-tab"
+   (is (th/matches-model
+        (lowlevel/insert-tab (th/convert "|abc"))
+        (th/convert "\t|abc")))
+   (is (th/matches-model
+        (lowlevel/insert-tab (th/convert "a[b]c"))
+        (th/convert "a\t|c")))))
 
 (deftest caret-left-base-case
   (is (th/matches-model 
