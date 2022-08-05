@@ -21,16 +21,16 @@
    #{"Backspace" #{} :selection-present}       :delete-with-selection-present
    #{"Backspace" #{:shift} :selection-present} :delete-with-selection-present
    #{"Backspace" #{}}                          :delete
-   #{"Backspace" #{:shift}}                    :delete-forward
+   #{"Slash" #{:ctrl}}                         :delete-forward
    #{"Backspace" #{:meta}}                     :delete-wordwise-backward
-   #{"Backspace" #{:shift :meta}}              :delete-wordwise-forward
+   #{"Slash" #{:meta}}                         :delete-wordwise-forward
    #{"Backspace" #{:alt}}                      :delete-sentence-wise-backward
-   #{"Backspace" #{:shift :alt}}               :delete-sentence-wise-forward
+   #{"Slash" #{:alt}}                          :delete-sentence-wise-forward
    #{"Enter" #{:shift}}                        :shift-enter
    #{"Enter" #{:alt}}                          :alt-enter
    #{"INSERT" #{:ctrl}}                        :insert
    #{"KeyV" #{:ctrl}}                          nil
    #{"KeyX" #{:ctrl}}                          nil
    #{"KeyC" #{:ctrl}}                          nil
-   #{"Tab"  #{}}                               :insert-tab
-   #{"Tab"  #{:shift}}                         :nop})
+   #{"Tab"  #{}}                                :insert-tab
+   #{"Tab"  #{:shift}}                          :nop})
