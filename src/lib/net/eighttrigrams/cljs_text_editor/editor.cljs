@@ -76,13 +76,25 @@
   (fn [_e]
     (reset! modifiers #{})))
 
-(defn create [el]
-  (let [modifiers (atom #{})
-        position-in-line (atom nil)
-        resolve-bindings (bindings-resolver/build bindings/commands)
-        transform-state (-> (machine/build) time-machine/build resolve-bindings)]
-    (.addEventListener el "paste" (paste el modifiers transform-state position-in-line))
-    (.addEventListener el "keydown" (keydown el modifiers transform-state position-in-line))
-    (.addEventListener el "keyup" (keyup el modifiers))
-    (.addEventListener el "mouseleave" (mouseleave el modifiers))
-    (.addEventListener el "click" (click el position-in-line))))
+(defn- get-bindings [input-field-mode?]
+  (if-not input-field-mode?
+    bindings/commands
+    (->>
+     bindings/commands
+     (remove (fn [[k _v]]
+               (contains? k "Tab")))
+     (into {}))))
+
+(defn create 
+  ([el] (create el false))
+  ([el input-field-mode?]
+   (prn (get-bindings input-field-mode?))
+   (let [modifiers (atom #{})
+         position-in-line (atom nil)
+         resolve-bindings (bindings-resolver/build (get-bindings input-field-mode?))
+         transform-state (-> (machine/build) time-machine/build resolve-bindings)]
+     (.addEventListener el "paste" (paste el modifiers transform-state position-in-line))
+     (.addEventListener el "keydown" (keydown el modifiers transform-state position-in-line))
+     (.addEventListener el "keyup" (keyup el modifiers))
+     (.addEventListener el "mouseleave" (mouseleave el modifiers))
+     (.addEventListener el "click" (click el position-in-line)))))
