@@ -5,7 +5,7 @@
 
 (def word-stop-pattern-incl-whitespace "[,;.\\-_\\s]") ;; TODO \\t?
 
-(def sentence-stop-pattern "([\\n][\\n]|[,;.\\t])")
+(def sentence-stop-pattern "([\\n][\\n]|[,;.\\t\\-])")
 
 (defn insert-tab [{value :value
                    selection-start :selection-start
