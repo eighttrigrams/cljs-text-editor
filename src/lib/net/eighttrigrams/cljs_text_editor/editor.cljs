@@ -51,9 +51,11 @@
          (transform-state ["INSERT" @modifiers])
          (set-values! el))))
 
-(defn keydown [el modifiers transform-state position-in-line:atom]
+(defn keydown [el modifiers transform-state position-in-line:atom debug?]
   (fn [e]
     (set-modifiers! e true modifiers)
+    (when debug? 
+      (prn "code" (.-code e) "modifiers" @modifiers))
     (let [new-state   (transform-state [(.-code e) @modifiers]
                                        (construct-state el position-in-line:atom))]
       (set-values! el new-state)
@@ -85,16 +87,17 @@
                (contains? k "Tab")))
      (into {}))))
 
-(defn create 
-  ([el] (create el false))
-  ([el input-field-mode?]
-   (prn (get-bindings input-field-mode?))
-   (let [modifiers (atom #{})
-         position-in-line (atom nil)
-         resolve-bindings (bindings-resolver/build (get-bindings input-field-mode?))
-         transform-state (-> (machine/build) time-machine/build resolve-bindings)]
-     (.addEventListener el "paste" (paste el modifiers transform-state position-in-line))
-     (.addEventListener el "keydown" (keydown el modifiers transform-state position-in-line))
-     (.addEventListener el "keyup" (keyup el modifiers))
-     (.addEventListener el "mouseleave" (mouseleave el modifiers))
-     (.addEventListener el "click" (click el position-in-line)))))
+(defn create
+  [el {input-field-mode? :input-field-mode?
+       debug?            :debug?}]
+  (when debug? 
+    (prn (get-bindings input-field-mode?)))
+  (let [modifiers (atom #{})
+        position-in-line (atom nil)
+        resolve-bindings (bindings-resolver/build (get-bindings input-field-mode?))
+        transform-state (-> (machine/build) time-machine/build resolve-bindings)]
+    (.addEventListener el "paste" (paste el modifiers transform-state position-in-line))
+    (.addEventListener el "keydown" (keydown el modifiers transform-state position-in-line debug?))
+    (.addEventListener el "keyup" (keyup el modifiers))
+    (.addEventListener el "mouseleave" (mouseleave el modifiers))
+    (.addEventListener el "click" (click el position-in-line))))
