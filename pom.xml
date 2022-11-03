@@ -21,6 +21,6 @@
     <url>https://github.com/eighttrigrams/cljs-text-editor</url>
     <connection>scm:git:git://github.com/eighttrigrams/cljs-text-editor.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/eighttrigrams/cljs-text-editor.git</developerConnection>
-    <tag>49392d82364b342a3644f64339d00ca02cf6378e</tag>
+    <tag>b8741ae8eba6b2dd4144467ce3998b320f081392</tag>
   </scm>
 </project>
