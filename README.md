@@ -32,10 +32,18 @@ $ clj -X:test :dirs '["test"]'
 
 ### Deploy
 
+#### Clojars
+
 ```bash
 $ clojure -X:jar :jar CljsTextEditor.jar
 $ env CLOJARS_USERNAME=username CLOJARS_PASSWORD=token clj -X:deploy
 ```
+
+#### NPM
+
+npx shadow-cljs release npm-lib
+cd dist
+npm publish
 
 ## Info
 

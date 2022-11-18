@@ -1,0 +1,6 @@
+{
+  "name": "cljs-text-editor",
+  "version": "0.0.14",
+  "main": "net.eighttrigrams.cljs_text_editor.editor.js",
+  "author": "eighttrigrams"
+}

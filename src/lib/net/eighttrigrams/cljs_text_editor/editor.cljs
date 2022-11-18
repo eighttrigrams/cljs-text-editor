@@ -87,7 +87,7 @@
                (contains? k "Tab")))
      (into {}))))
 
-(defn create
+(defn ^:export create
   [el {input-field-mode? :input-field-mode?
        debug?            :debug?}]
   (when debug? 

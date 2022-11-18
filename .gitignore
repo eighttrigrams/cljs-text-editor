@@ -8,3 +8,5 @@ target
 .calva
 .cpcache
 CljsTextEditor.jar
+dist/*
+!dist/package.json

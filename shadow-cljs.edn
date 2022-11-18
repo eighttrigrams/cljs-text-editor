@@ -1,20 +1,17 @@
 ;; shadow-cljs configuration
-{:source-paths
- ["src/main"
-  "src/lib"]
+{:source-paths ["src/main"
+                "src/lib"]
 
- :dependencies
- []
+ :dependencies []
 
- :dev-http
- {8020 "public"}
+ :dev-http     {8020 "public"}
 
- :builds
- {:app
-  {:target :browser
-   :output-dir "public/js"
-   :asset-path "/js"
+ :builds       {:app     {:target     :browser
+                          :output-dir "public/js"
+                          :asset-path "/js"
 
-   :modules
-   {:editor ; becomes public/js/editor.js
-    {:init-fn editor/init}}}}}
+                          :modules    {:editor ; becomes public/js/editor.js
+                                       {:init-fn editor/init}}}
+                :npm-lib {:target     :npm-module
+                          :output-dir "./dist/"
+                          :entries    [net.eighttrigrams.cljs-text-editor.editor]}}}
