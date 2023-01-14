@@ -12,7 +12,7 @@
   ;; so it is available even in :advanced release builds
   (js/console.log "init")
   (let [el (.getElementById js/document "textarea")]
-    (editor/create el))
+    (editor/create el {}))
   (start))
 
 ;; this is called before any code is reloaded

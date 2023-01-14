@@ -4,7 +4,7 @@
   <packaging>jar</packaging>
   <groupId>net.eighttrigrams</groupId>
   <artifactId>cljs-text-editor</artifactId>
-  <version>0.0.14</version>
+  <version>0.0.15</version>
   <name>cljs-text-editor</name>
   <dependencies>
   </dependencies>
