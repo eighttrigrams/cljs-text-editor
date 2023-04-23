@@ -21,11 +21,11 @@
    #{"Backspace" #{} :selection-present}       :delete-with-selection-present
    #{"Backspace" #{:shift} :selection-present} :delete-with-selection-present
    #{"Backspace" #{}}                          :delete
-   #{"Slash" #{:alt}}                          :delete-forward
+   #{"Equal" #{}}                              :delete-forward
    #{"Backspace" #{:meta}}                     :delete-wordwise-backward
-   #{"Slash" #{:meta}}                         :delete-wordwise-forward
+   #{"Equal" #{:meta}}                         :delete-wordwise-forward
    #{"Backspace" #{:ctrl}}                     :delete-sentence-wise-backward
-   #{"Slash" #{:ctrl}}                         :delete-sentence-wise-forward
+   #{"Equal" #{:ctrl}}                         :delete-sentence-wise-forward
    #{"Enter" #{:shift}}                        :shift-enter
    #{"Enter" #{:alt}}                          :alt-enter
    #{"INSERT" #{:ctrl}}                        :insert
